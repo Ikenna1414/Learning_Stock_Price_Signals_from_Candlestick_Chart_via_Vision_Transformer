@@ -1,0 +1,2 @@
+# Learning_Stock_Price_Signals_from_Candlestick_Chart_via_Vision_Transformer
+Research Paper Replication - Alpha signal extraction from candle stick charts using Vision Tranformers
