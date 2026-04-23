@@ -47,6 +47,10 @@ Instead of relying on raw prices, we:
 
 `adjusted_low_t = BIDLO_t * (adjusted_close_t / PRC_t)`
 
+### Initialization
+- For each PERMNO, the first adjusted_close is initialized using the observed PRC
+- Subsequent values are computed recursively using returns
+
 ---
 
 ## ⚙️ Pipeline Architecture
