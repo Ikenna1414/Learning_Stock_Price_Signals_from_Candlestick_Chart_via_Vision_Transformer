@@ -41,11 +41,11 @@ Instead of relying on raw prices, we:
 
 `adjusted_close_t = adjusted_close_{t-1} * (1 + RET_t)`
 
-adjusted_open_t = adjusted_close_{t-1}
+`adjusted_open_t = adjusted_close_{t-1}`
 
-adjusted_high_t = ASKHI_t * (adjusted_close_t / PRC_t)
+`adjusted_high_t = ASKHI_t * (adjusted_close_t / PRC_t)`
 
-adjusted_low_t = BIDLO_t * (adjusted_close_t / PRC_t)
+`adjusted_low_t = BIDLO_t * (adjusted_close_t / PRC_t)`
 
 ---
 
