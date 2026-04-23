@@ -37,6 +37,21 @@ Instead of relying on raw prices, we:
 2. Ensure continuity across time  
 3. Generate adjusted OHLC values for candlestick charting  
 
+$$
+\text{adjusted\_close}_t = \text{adjusted\_close}_{t-1} \times (1 + \text{RET}_t)
+$$
+
+$$
+\text{adjusted\_open}_t = \text{adjusted\_close}_{t-1}
+$$
+
+$$
+\text{adjusted\_high}_t = \text{ASKHI}_t \times \frac{\text{adjusted\_close}_t}{\text{PRC}_t}
+$$
+
+$$
+\text{adjusted\_low}_t = \text{BIDLO}_t \times \frac{\text{adjusted\_close}_t}{\text{PRC}_t}
+$$
 ---
 
 ## ⚙️ Pipeline Architecture
