@@ -60,7 +60,7 @@ Instead of relying on raw prices, we:
 chunksize = 100_000
 ```
 
-## Candlestick Image Generation and Labeling
+# Candlestick Image Generation and Labeling
 
 ### Overview
 This stage converts the reconstructed OHLC price data into **candlestick chart images** and assigns labels based on future returns. The output is a large-scale image dataset suitable for training deep learning models such as Vision Transformers (ViT).
@@ -225,8 +225,7 @@ This module trains a Vision Transformer (ViT) to classify stock price movement f
 
 ---
 
-## Model
-# Vision Transformer (ViT) Model – Stock Return Prediction
+# Vision Transformer (ViT) Model – Architecture and Training
 
 ## Overview
 This module trains a Vision Transformer (ViT) to predict future stock price direction using candlestick chart images. The task is formulated as a binary classification problem based on forward returns.
