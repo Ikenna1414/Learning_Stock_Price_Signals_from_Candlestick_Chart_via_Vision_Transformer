@@ -62,7 +62,7 @@ Instead of relying on raw prices, we:
 
 ```python
 chunksize = 100_000
-
+```
 
 ## Candlestick Image Generation and Labeling
 
