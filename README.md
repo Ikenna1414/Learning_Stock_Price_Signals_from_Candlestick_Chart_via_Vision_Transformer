@@ -170,18 +170,18 @@ This ensures:
 ### Image Storage
 
 Images are saved as PNG files with naming format:
-```PERMNO_YYYYMMDD.png
-```
+```PERMNO_YYYYMMDD.png```
+
 
 Directory structure:
 ```
 image_dataset/
 train_val/
-up/
-down/
+  up/
+  down/
 test/
-up/
-down/
+  up/
+  down/
 ```
 
 ---
