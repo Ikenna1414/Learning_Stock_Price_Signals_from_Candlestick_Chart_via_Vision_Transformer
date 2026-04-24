@@ -214,30 +214,17 @@ The result is a dataset suitable for deep learning models to learn patterns from
 
 
 # Vision Transformer (ViT) Model – Stock Return Prediction
-
-## Overview
-This module trains a Vision Transformer (ViT) to classify stock price movement from candlestick chart images.
-
-- Input: 25-day candlestick images (224×224)
-- Output: Binary classification
-  - `1` → future return positive  
-  - `0` → future return negative  
-
----
-
-# Vision Transformer (ViT) Model – Architecture and Training
-
 ## Overview
 This module trains a Vision Transformer (ViT) to predict future stock price direction using candlestick chart images. The task is formulated as a binary classification problem based on forward returns.
 - Input: 25-day candlestick chart images (224×224)
-- Output:
+- Output: Binary classification
   - `1` → positive future return  
   - `0` → negative future return  
 
 ---
 
 ## Model Architecture
-A Vision Transformer (ViT-B/32) is used with a reduced number of encoder layers to match the experimental setup. The model is trained from scratch without pretrained weights.
+A Vision Transformer (ViT-B/32) is used with a reduced number of encoder layers to match the experimental setup. The model is trained from stratch without pretrained weights
 ---
 ## Data Pipeline
 Images are organized into class folders and loaded using a standard image dataset loader.
