@@ -95,8 +95,8 @@ Each image is generated using a rolling window:
 - Prediction horizon: 20 trading days  
 
 For each stock (PERMNO), a rolling buffer is maintained:
-```window size = lookback + horizon = 45
-```
+```window size = lookback + horizon = 45```
+
 
 From this:
 - First 25 days → used to generate the image  
@@ -108,8 +108,8 @@ From this:
 ### Label Definition
 
 The label is based on the future return:
-```forward_return = (close_future - close_now) / close_now
-```
+```forward_return = (close_future - close_now) / close_now```
+
 
 Label:
 - `up` if forward_return > 0  
@@ -176,12 +176,12 @@ Images are saved as PNG files with naming format:
 Directory structure:
 ```
 image_dataset/
-train_val/
-  up/
-  down/
-test/
-  up/
-  down/
+  train_val/
+      up/
+      down/
+  test/
+      up/
+      down/
 ```
 
 ---
