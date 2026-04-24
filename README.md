@@ -96,7 +96,7 @@ Each image is generated using a rolling window:
 
 For each stock (PERMNO), a rolling buffer is maintained:
 ```window size = lookback + horizon = 45
-
+```
 
 From this:
 - First 25 days → used to generate the image  
