@@ -22,9 +22,9 @@ After investigation via plotting percentage return, percentage change in prices 
 > Stock splits and dividends are embedded in returns, but not in price fields.
 
 This leads to:
-- ❌ Discontinuous price series (artificial jumps)  
-- ❌ Misleading candlestick charts  
-- ❌ Models learning noise instead of signal  
+- Discontinuous price series (artificial jumps)  
+- Misleading candlestick charts  
+- Models learning noise instead of signal  
 
 ---
 
