@@ -225,7 +225,8 @@ This module trains a Vision Transformer (ViT) to predict future stock price dire
 
 ## Model Architecture
 
-###A Vision Transformer (ViT-B/32) is used with a reduced number of encoder layers to match the experimental setup. The model is trained from stratch without pretrained weights
+A Vision Transformer (ViT-B/32) is used with a reduced number of encoder layers to match the experimental setup. The model is trained from stratch without pretrained weights
+
 ---
 ## Data Pipeline
 Images are organized into class folders and loaded using a standard image dataset loader.
