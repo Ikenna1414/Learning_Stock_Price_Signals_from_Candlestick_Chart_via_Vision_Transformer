@@ -109,6 +109,7 @@ From this:
 
 The label is based on the future return:
 ```forward_return = (close_future - close_now) / close_now
+```
 
 Label:
 - `up` if forward_return > 0  
