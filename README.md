@@ -243,7 +243,6 @@ The dataset is split into:
 - Loss Function: Cross-Entropy  
 - Optimizer: Adam  
 - Learning Rate: 1e-4  
-- Weight Decay: 1e-4  
 - Batch Size: 32  
 - Device: GPU  
 
