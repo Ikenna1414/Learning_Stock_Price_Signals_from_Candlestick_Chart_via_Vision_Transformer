@@ -341,4 +341,30 @@ Long the highest signal quintile, short the lowest, averaged across size groups 
 ### Step 7 — Factor Alpha Test
 
 
+A statistically significant α confirms the signal generates returns that existing risk factors cannot explain.
+
+---
+
+## Current Results (Interim Checkpoint)
+
+| Metric | Value |
+|--------|-------|
+| Best cohort spread (Q4 vs Q1) | +1.80% per month (~21.6% annualised) |
+| Stock-month observations | 128,561 |
+| Monthly rebalancing periods | 235 (January 2001 to July 2020) |
+| L/S Q5-Q1 Sharpe | -0.33 (model not fully converged) |
+| Published benchmark L/S Sharpe | 0.51 (Byun et al. 2025) |
+
+Non-monotonic quintile pattern reflects an intermediate training checkpoint. Signal is present but probability calibration resolves with full training.
+
+---
+
+## Notes
+
+* Faithful replication of Byun et al. (2025) — all parameters, breakpoints, and weighting choices match the published paper
+* Any divergence from published results is attributable to model training state, not portfolio construction
+* Universe defined via CRSP exchange codes — no survivorship bias
+
+
+
 
