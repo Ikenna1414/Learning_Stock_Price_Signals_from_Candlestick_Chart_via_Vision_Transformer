@@ -265,6 +265,80 @@ Batch-level logging is implemented to provide visibility during long training ru
 ## Notes
 - Model is trained entirely from scratch  
 - Configuration follows research constraints (no pretrained weights, fixed image size)  
-- Designed for large-scale datasets (millions of images)  
+- Designed for large-scale datasets (millions of images)
+
+- # Improved Vision Transformer – Enhanced Model
+
+## Overview
+
+An improved version of the baseline ViT model is provided in `improved_vit_model.ipynb`, introducing 9 enhancements over the baseline to improve training stability and probability calibration.
+
+The most important improvement is **label smoothing**, which directly addresses the non-monotonic quintile return pattern observed in interim results. Better-calibrated probability scores produce cleaner cross-sectional stock rankings.
+
+---
+
+## Improvements Over Baseline
+
+| Feature | Baseline | Improved |
+|---------|----------|----------|
+| Encoder layers | 2 | 4 |
+| Optimizer | Adam | AdamW |
+| LR schedule | Fixed 1e-4 | Cosine decay |
+| Label smoothing | None | 0.1 |
+| Image augmentation | None | Random flip + ColorJitter |
+| Mixed precision | No | Yes (FP16) |
+| Gradient clipping | No | Yes (max norm 1.0) |
+| Classification head | Linear | LayerNorm + Dropout + Linear |
+| Image normalisation | ToTensor only | ImageNet mean/std |
+
+---
+
+# Portfolio Construction – Long-Short Factor Strategy
+
+## Overview
+
+This module takes the ViT model's predicted probability scores and constructs long-short factor portfolios following the double-sort methodology of Byun, Na, and Song (2025) and Fama-French (1993).
+
+---
+
+## Input Files Required
+
+| File | Description |
+|------|-------------|
+| `vit_signals_chunk_40.csv` | ViT model output — predicted P(up) per stock per date |
+| `final_market_data.csv` | CRSP daily data (2000–2024): price, volume, market cap, exchange |
+| `ff3.csv` | Fama-French 3-factor monthly returns from WRDS |
+
+---
+
+## Pipeline
+
+### Step 1 — Build Market Data
+CRSP daily data is loaded and pivoted into panel DataFrames: close prices, volume, market cap, and NYSE-only market cap. Days with zero volume are treated as non-trading days.
+
+### Step 2 — NYSE Size Breakpoints
+Size breakpoints computed from NYSE-listed stocks only, updated annually each June. Quintile cutoffs at the 20th, 40th, 60th, and 80th percentiles of NYSE market cap.
+
+### Step 3 — Reformat ViT Signals to Monthly
+Daily predicted probabilities are converted to monthly signals using the last available prediction at each month-end.
+
+### Step 4 — Double Sort (5×5)
+At each month-end, stocks are independently sorted on two dimensions:
+1. **Market capitalisation** — NYSE breakpoints updated June annually
+2. **ViT signal** — predicted probability of a positive 20-day forward return
+
+### Step 5 — Portfolio Weighting
+Three weighting schemes applied within each portfolio cell:
+* **Cap-VW:** value-weighted, individual weights capped at 80th NYSE percentile
+* **Standard VW:** standard value-weighted
+* **Equal-Weighted (EW):** equal weight per stock
+
+Monthly rebalancing with **10 basis points** transaction cost round-trip.
+
+### Step 6 — Long-Short Factor
+Long the highest signal quintile, short the lowest, averaged across size groups for a size-neutral monthly return series.
+
+### Step 7 — Factor Alpha Test
+
 
 
