@@ -301,13 +301,15 @@ This module takes the ViT model's predicted probability scores and constructs lo
 
 ---
 
+
 ## Input Files Required
 
 | File | Description |
 |------|-------------|
-| `vit_signals_chunk_40.csv` | ViT model output — predicted P(up) per stock per date |
-| `final_market_data.csv` | CRSP daily data (2000–2024): price, volume, market cap, exchange |
-| `ff3.csv` | Fama-French 3-factor monthly returns from WRDS |
+| `crsp_full.csv` | Full CRSP download (1.37GB, 37M rows) — daily price, volume, market cap, exchange code |
+| `vit_chunk1.csv` | ViT signal output, training checkpoints 1–40 (permno, date, predicted P(up)) |
+| `vit_chunk2.csv` | ViT signal output, training checkpoints 40–89 (path, signal, label) |
+| `ff3.csv` | Fama-French 3-factor monthly returns + momentum (WRDS) |
 
 ---
 
