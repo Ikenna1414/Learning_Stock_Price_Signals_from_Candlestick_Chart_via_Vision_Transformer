@@ -1,6 +1,8 @@
 # Learning_Stock_Price_Signals_from_Candlestick_Chart_via_Vision_Transformer
 Research Paper Replication - Alpha signal extraction from candle stick charts using Vision Tranformers
 
+Trained weights: https://huggingface.co/Ikenna14/candlestick-vit-return-direction 
+
 #  Stock Price Reconstruction & Candlestick Data Pipeline
 ## Overview
 In this section of the project, a scalable data pipeline is built to transform raw CRSP stock data into model-ready, split-adjusted OHLC (Open, High, Low, Close) price series. These outputs are designed for the downstream machine learning tasks, including **candlestick image generation** and **Vision Transformer (ViT) modeling** for stock return prediction.
